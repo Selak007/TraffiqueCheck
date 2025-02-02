@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Add custom styles for the welcome page */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url("peakpx.jpg"); /* Use the image file */
+      background-size: cover; /* Cover the entire background */
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center content vertically */
+      height: 100vh; /* Ensure full viewport height */
+      overflow: hidden; /* Prevent scrollbars */
+    }
+    h1 {
+      font-size: 4rem;
+      color: #e7810c;
+      margin-bottom: 20px;
+      text-align: center; /* Center the heading */
+    }
+    .logo-container {
+      margin-bottom: 50px;
+      border: 2px solid #333; /* Add border here */
+      padding: 10px; /* Add some padding around the logo */
+      border-radius: 10px; /* Optional: round the corners */
+      background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background */
+    }
+
+    .logo-container img {
+      width: 200px;
+      height: auto;
+      display: block; /* Prevents small space below image */
+      margin: 0 auto; /* Center the image within the container */
+    }
+    .nav-buttons { /* Container for buttons */
+      display: flex;
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: center;  /* Center buttons horizontally */
+    }
+    .nav-btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0; /* Vertical margin for spacing */
+      text-decoration: none;
+      width: 200px; /* Consistent button width */
+      text-align: center; /* Center button text */
+    }
+    .nav-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Smart Traffic Management</h1>
+  <div class="logo-container">
+    <img src="logo-photoaidcom-cropped.png" alt="Logo Placeholder">
+  </div>
+  <div class="nav-buttons">  <a href="user.html" class="nav-btn">User Dashboard</a>
+    <a href="authorities.html" class="nav-btn">Authorities Dashboard</a>
+  </div>
+</body>
+</html>

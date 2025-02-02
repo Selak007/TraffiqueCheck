@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authorities Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("peakpx.jpg"); /* Use the image file */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center content vertically */
+            height: 100vh; /* Ensure full viewport height */
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            text-align: center;
+            width: 400px; /* Set a max-width for the container */
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #e7910e;
+            margin-bottom: 20px;
+        }
+
+        #sosNotifications { /* Style for the notifications area */
+            margin-top: 20px;
+            text-align: left; /* Align notifications to the left */
+        }
+
+        .sos-message { /* Style for individual SOS messages */
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Light gray background */
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px; /* Space above the button */
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Authorities Dashboard</h1>
+        <div id="sosNotifications">
+            </div>
+        <a href="welcome.html"><button class="nav-btn">Back to Home</button></a>
+    </div>
+</body>
+</html>
