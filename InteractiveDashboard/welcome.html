@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Traffic Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff6600',
+            secondary: '#0055aa',
+            darkBg: '#121212',
+            darkText: '#ffffff',
+          },
+          fontFamily: {
+            sans: ['Akony', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: url('background.jpg') no-repeat center center/cover;
+      transition: background 1s ease-in-out;
+      min-height: 100vh;
+      font-family: 'Akony', sans-serif;
+    }
+    #chatbox-container {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 320px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+    }
+    #chatbox {
+      height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    .user { color: blue; text-align: right; }
+    .bot { color: green; text-align: left; }
+    input { width: 100%; padding: 5px; margin-top: 10px; }
+  </style>
+</head>
+<body class="transition-all duration-500 bg-gray-100 dark:bg-darkBg dark:text-darkText font-sans">
+
+  <button id="theme-toggle" class="fixed top-4 right-4 p-3 bg-gray-300 dark:bg-gray-700 rounded-full shadow-lg hover:scale-110 transition-transform">
+    🌙
+  </button>
+
+  <div class="fixed top-4 left-4 bg-white p-3 rounded-full shadow-lg">
+    <select id="language-selector" class="bg-white p-2 border rounded">
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="ta">Tamil</option>
+      <option value="bn">Bengali</option>
+    </select>
+  </div>
+
+  <section class="h-screen flex flex-col items-center justify-center text-center px-6">
+    <h1 class="text-6xl md:text-7xl font-extrabold text-primary dark:text-orange-400" id="hero-text">
+      Smart Traffic Management
+    </h1>
+    <p class="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300" id="sub-text">
+      Efficient & Intelligent Traffic Solutions for a Smarter Future
+    </p>
+    <div class="mt-6 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+      <a href="user.html" class="nav-btn" id="user-dashboard">User Dashboard</a>
+      <a href="authorities.html" class="nav-btn" id="authorities-dashboard">Authorities Dashboard</a>
+      <a href="locator.html" class="nav-btn">Find Police Stations</a>
+    </div>
+  </section>
+
+  <button id="chatbot-btn" class="fixed bottom-4 right-4 p-3 bg-secondary text-white rounded-full shadow-lg hover:scale-110 transition">
+    💬 Chatbot
+  </button>
+
+  <div id="chatbox-container">
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+  
+  <script>
+    document.getElementById("chatbot-btn").addEventListener("click", function() {
+      let chatbox = document.getElementById("chatbox-container");
+      chatbox.style.display = chatbox.style.display === "none" ? "block" : "none";
+    });
+
+    async function sendMessage() {
+      let inputField = document.getElementById("userInput");
+      let userMessage = inputField.value;
+      inputField.value = ""; 
+      if (!userMessage) return;
+
+      let chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<p class="user">You: ${userMessage}</p>`;
+
+      try {
+        let response = await fetch("https://hook.eu2.make.com/16a4zuh3r7pmc7cc398a983bwvpb8li6", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: userMessage })
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        let data = await response.json();
+        let botMessage = data.response || "Sorry, I didn't understand.";
+
+        chatbox.innerHTML += `<p class="bot">Bot: ${botMessage}</p>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+      } catch (error) {
+        console.error("Error fetching response:", error);
+        chatbox.innerHTML += `<p class="bot">Bot: Error fetching response.</p>`;
+      }
+    }
+  </script>
+  <script src="shake-detector.js"></script>
+</body>
+</html>

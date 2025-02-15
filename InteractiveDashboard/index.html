@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Traffic Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#007bff',
+            darkBg: '#1a1a2e',
+            darkText: '#e0e0e0',
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="transition-all duration-300 bg-gray-100 dark:bg-darkBg dark:text-darkText">
+  <!-- Dark Mode Toggle -->
+  <button id="theme-toggle" 
+    class="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 rounded-full shadow-md">
+    🌙
+  </button>
+
+  <!-- Main Container -->
+  <div class="flex flex-col items-center justify-center min-h-screen text-center p-4">
+    
+    <!-- Logo -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg">
+      <img src="trafficlogo.png" alt="Traffic Logo" class="w-40 mx-auto">
+    </div>
+
+    <!-- Heading -->
+    <h1 class="mt-6 text-4xl md:text-5xl font-extrabold text-primary dark:text-orange-400">
+      Smart Traffic Management
+    </h1>
+
+    <!-- Navigation Buttons -->
+    <div class="mt-6 flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4">
+      <a href="user.html" class="nav-btn">User Dashboard</a>
+      <a href="authorities.html" class="nav-btn">Authorities Dashboard</a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="relative mt-6 w-full max-w-md">
+      <input type="text" placeholder="Search..." class="w-full px-4 py-2 rounded-lg shadow-md bg-white dark:bg-gray-700 focus:outline-none">
+      <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 dark:text-gray-300">🔍</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

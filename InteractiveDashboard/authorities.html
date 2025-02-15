@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#007bff',
+              darkBg: '#0f172a',
+              darkText: '#e0e0e0',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="transition-all duration-500 bg-gray-100 dark:bg-darkBg dark:text-darkText font-sans flex items-center justify-center min-h-screen">
+    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg max-w-md text-center">
+        <h1 class="text-3xl font-bold text-primary dark:text-orange-400">User Dashboard</h1>
+        <div class="mt-4 flex">
+            <input type="text" id="roadSearch" class="flex-grow p-2 border rounded-l-md" placeholder="Enter road name">
+            <button id="searchButton" class="bg-primary text-white px-4 rounded-r-md hover:bg-blue-700">Search</button>
+        </div>
+        <p id="safetyRating" class="mt-4 font-semibold">Safety Rating: </p>
+        <p id="location" class="mt-2">Fetching location...</p>
+        <button class="mt-4 bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-700">Send SOS</button>
+        <a href="welcome.html" class="mt-4 block text-primary dark:text-orange-400 hover:underline">Back to Home</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
