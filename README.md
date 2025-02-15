@@ -109,11 +109,86 @@ flask run --host=0.0.0.0 --port=5001
 
 ---
 
-## Contributing
+# Smart Traffic Management - Citizen Safety Website
 
-Fork the repository and submit pull requests for improvements.
+## Overview
 
-## License
+The **Smart Traffic Management & Citizen Safety** website is designed to provide efficient and intelligent traffic solutions while ensuring citizen security. It integrates features such as chatbot assistance, shake detection for emergency alerts, multilingual support, and interactive navigation to police stations.
 
-MIT License
+## Features
+
+### 1. **Multilingual Support**
+
+- Users can switch between multiple languages, including English, Hindi, Tamil, and Bengali.
+- Implemented using an API-based dynamic translation system.
+
+### 2. **Chatbot Assistance**
+
+- A chatbot is integrated into the website, accessible via a floating button.
+- Uses an external API for responses.
+- Appears as a dropdown when clicked.
+
+### 3. **Shake Detection for Emergencies**
+
+- Detects sudden movements using the device's accelerometer.
+- Triggers an emergency siren and alerts when shaking is detected.
+
+### 4. **Find Nearby Police Stations**
+
+- Users can access a locator page to find the nearest police stations.
+- Uses an interactive map for easy navigation.
+
+### 5. **Dark Mode & Theming**
+
+- Users can toggle between light and dark modes.
+- Customizable colors with Tailwind CSS.
+
+### 6. **Modern UI/UX**
+
+- Responsive design with Tailwind CSS.
+- Animated elements using GSAP for smooth transitions.
+
+## File Structure
+
+```
+📁 project-root
+│── index.html (Main webpage)
+│── locator.html (Police station locator)
+│── chatbot.html (Standalone chatbot page)
+│── styles.css (Custom styling)
+│── shake-detector.js (Emergency shake detection)
+│── chatbot.js (Handles chatbot functionality)
+│── README.md (This file)
+```
+
+## How to Run
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/smart-traffic-management.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd smart-traffic-management
+   ```
+3. Open `index.html` in a web browser.
+
+## Dependencies
+
+- **Tailwind CSS** (for styling)
+- **GSAP** (for animations)
+- **Leaflet.js** (for map-based police station locator)
+
+## Future Enhancements
+
+- Integration of AI-based traffic monitoring.
+- Improved chatbot with voice interaction.
+- Real-time location tracking for emergency services.
+
+## Credits
+
+Developed by Team Traiffique
+Selva Akash Ajay Varsan Krishna Chelliah Hariharan S Akshara V.
+
+
 
